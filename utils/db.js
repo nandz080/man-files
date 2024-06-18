@@ -5,7 +5,7 @@ import { MongoClient, ObjectId } from 'mongodb';
 export class DBClient {
   constructor() {
     const host = env.DB_PORT ? env.DB_PORT : '127.0.0.1';
-    const port = env.DB_HOST ? env.DB_HOST : 27017;
+    const port = env.DB_HOST ? env.DB_HOST : 6379;
     const database = env.DB_DATABASE ? env.DB_DATABASE : 'files_manager';
     this.myClient = MongoClient(`mongodb://${host}:${port}/${database}`);
     this.myClient.connect();
