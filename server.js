@@ -1,12 +1,9 @@
 import express from 'express';
-import { env } from 'process';
+const app = express(); // Can also use `const express = require('express');` for CommonJS
 
-const mainRoute = require('./routes/index');
+const port = process.env.PORT || 5000;
+const routes = require('./routes'); // Still require for non-ES modules
 
-const app = express();
-const port = env.PORT || 5000;
-app.use(express.json());
-app.use(mainRoute);
-app.listen(port, '127.0.0.1');
+app.use('/', routes);
 
-export default app;
+app.listen(port, () => console.log(`Server running on port ${port}`));
