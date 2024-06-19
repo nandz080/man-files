@@ -1,4 +1,5 @@
-import express from 'express';
+const express = require('express');
+//import express from 'express';
 const app = express(); // Can also use `const express = require('express');` for CommonJS
 
 const port = process.env.PORT || 5000;
